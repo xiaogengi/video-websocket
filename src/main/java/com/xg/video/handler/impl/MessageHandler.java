@@ -12,6 +12,8 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import javax.websocket.Session;
+import java.io.BufferedOutputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -43,8 +45,21 @@ public class MessageHandler implements Handler , InitializingBean {
     }
 
     @Scheduled(cron = "0 0 8 * * ?")
-    public void InputMessage(){
+    public void InputMessage() throws IOException{
         //写入本地
+        BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream("/Users/didi/Desktop/message.txt"));
+
+        MESSAGE_LIST.stream().forEach(item -> {
+            try {
+                bufferedOutputStream.write((item + "\n").getBytes());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+        bufferedOutputStream.flush();
+        bufferedOutputStream.close();
+
+
     }
 
 
