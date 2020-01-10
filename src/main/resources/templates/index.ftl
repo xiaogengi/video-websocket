@@ -16,7 +16,7 @@ body {
 }
 .m {
 	width: 960px;
-	height: 400px;
+	height: 600px;
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 20px;
@@ -26,7 +26,7 @@ body {
 
 	<body>
     <div class="m">
-      <video id="my-video" class="video-js" controls preload="auto" width="960" height="400"
+      <video id="my-video" class="video-js" controls preload="auto" width="960" height="600"
 		  poster="m.jpg" data-setup="{}">
         <source src="../video/video.mp4" type="video/mp4">
     	<source src="http://vjs.zencdn.net/v/oceans.webm" type="video/webm">
@@ -335,7 +335,7 @@ body {
 
 		//滚动条默认底部
 		function Bottom() {
-			var msg = document.getElementById("msg");
+			var msg = document.getElementById("messages");
 			msg.scrollTop = msg.scrollHeight;
 		}
 
