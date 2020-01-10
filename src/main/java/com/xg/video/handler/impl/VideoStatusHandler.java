@@ -7,6 +7,7 @@ import com.xg.video.utils.SendHandlerUtils;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Component;
 import javax.websocket.Session;
+import java.net.SocketTimeoutException;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -35,6 +36,17 @@ public class VideoStatusHandler implements Handler, InitializingBean {
     @Override
     public void afterPropertiesSet() throws Exception {
         StrategyConfig.HANDLER_STRATEGY.put("video",this);
+    }
+
+    public static void main(String[] args) {
+        try {
+            if(false){
+                throw new SocketTimeoutException();
+            }
+            System.out.println("正常处理");
+        } catch (SocketTimeoutException e) {
+            System.out.println("超时处理");
+        }
     }
 
 }
