@@ -30,10 +30,7 @@ public class MessageHandler implements Handler , InitializingBean {
 
     private static List<String> MESSAGE_LIST = new ArrayList<>();
 
-    @Override
-    public void afterPropertiesSet() throws Exception {
-        StrategyConfig.HANDLER_STRATEGY.put("message",this);
-    }
+
 
     @Override
     public void handler(JSONObject content, Session session) {
@@ -63,5 +60,13 @@ public class MessageHandler implements Handler , InitializingBean {
     }
 
 
+
+
+
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        StrategyConfig.HANDLER_STRATEGY.put("message",this);
+    }
 
 }

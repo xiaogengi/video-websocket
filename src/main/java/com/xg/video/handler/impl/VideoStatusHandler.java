@@ -22,10 +22,6 @@ public class VideoStatusHandler implements Handler, InitializingBean {
 
     public static  Map<String , String> CHANNEL_VIDEO_STATUS = new ConcurrentHashMap<>();
 
-    @Override
-    public void afterPropertiesSet() throws Exception {
-        StrategyConfig.HANDLER_STRATEGY.put("video",this);
-    }
 
 
     @Override
@@ -34,4 +30,11 @@ public class VideoStatusHandler implements Handler, InitializingBean {
         CHANNEL_VIDEO_STATUS.put("XBB",status);
         SendHandlerUtils.sendHandler("videoStatus",status);
     }
+
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        StrategyConfig.HANDLER_STRATEGY.put("video",this);
+    }
+
 }

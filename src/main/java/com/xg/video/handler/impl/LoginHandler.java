@@ -23,15 +23,18 @@ public class LoginHandler implements Handler,InitializingBean {
     public static List<String> USER_LIST = new ArrayList<>();
 
     @Override
-    public void afterPropertiesSet() throws Exception {
-        StrategyConfig.HANDLER_STRATEGY.put("login",this);
-    }
-
-    @Override
     public void handler(JSONObject content, Session session) {
         String userId = content.getString("userId");
         USER_LIST.add(userId);
         SendHandlerUtils.sendHandler("login", userId + " ：登陆成功 ❤️",session);
     }
+
+
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        StrategyConfig.HANDLER_STRATEGY.put("login",this);
+    }
+
 
 }
