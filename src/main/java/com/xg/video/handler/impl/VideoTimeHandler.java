@@ -25,7 +25,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class VideoTimeHandler implements Handler, InitializingBean {
 
 
-    private static Map<String,String> CHANNEL_USER_VIDEO_TIME = new ConcurrentHashMap<>();
+    public static Map<String,String> CHANNEL_USER_VIDEO_TIME = new ConcurrentHashMap<>();
 
     private static final BigDecimal DEFAULT_BIG_DECIMAL = new BigDecimal("0.51");
 

@@ -124,7 +124,7 @@ body {
 			var myPlayer = videojs('my-video');
 			videojs("my-video").ready(function(){
 				var myPlayer = this;
-				myPlayer.play();
+				//myPlayer.play();
 			});
 
 
@@ -152,7 +152,7 @@ body {
 	</center>
 	<script type="text/javascript">
 		var webSocket =
-				new WebSocket('ws://localhost:8080/MessageWebsocket');
+				new WebSocket('ws://172.22.35.19:8080/MessageWebsocket');
 
 		//错误通知
 		webSocket.onerror = function(event) {
@@ -184,6 +184,7 @@ body {
 			}else if(data.key == 'message'){
 				//消息处理
 				document.getElementById('messages').innerHTML += '<br />' + data.content;
+				Bottom()
 			}else if(data.key == 'videoTime'){
 				//同步播放时间
 				syncVideoTime(data.content);
@@ -331,6 +332,13 @@ body {
 			txt = JSON.stringify(txt);
 			webSocket.send(txt);
 		}
+
+		//滚动条默认底部
+		function Bottom() {
+			var msg = document.getElementById("msg");
+			msg.scrollTop = msg.scrollHeight;
+		}
+
 	</script>
 </body>
 </html>

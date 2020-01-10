@@ -20,7 +20,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class VideoStatusHandler implements Handler, InitializingBean {
 
 
-    public static final Map<String , String> CHANNEL_VIDEO_STATUS = new ConcurrentHashMap<>();
+    public static  Map<String , String> CHANNEL_VIDEO_STATUS = new ConcurrentHashMap<>();
 
     @Override
     public void afterPropertiesSet() throws Exception {
